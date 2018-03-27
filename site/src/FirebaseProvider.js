@@ -3,7 +3,7 @@ import React from 'react'
 export default (Component, firebaseApp, ref) =>
     class extends React.Component {
         state = {
-            data: {},
+            data: undefined,
         }
 
         firebaseRef = firebaseApp.database().ref(ref)
