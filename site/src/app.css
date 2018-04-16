@@ -22,3 +22,40 @@
     background: rgba(255, 255, 255, 0.9);
     padding: 2px 4px;
 }
+
+.app__button-group {
+    margin-top: 10px;
+    display: flex;
+}
+
+.app__button {
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+    fill: white;
+    font-size: 0.8em;
+    cursor: pointer;
+    text-decoration: none;
+
+    padding: 0.6em 1.25em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    opacity: 0.8;
+}
+
+.app__button:hover {
+    opacity: 1;
+}
+
+.app__button-icon {
+    margin-right: 10px;
+}
+
+.app__button--primary {
+    margin-right: 15px;
+    background: palevioletred;
+    border-color: palevioletred;
+}

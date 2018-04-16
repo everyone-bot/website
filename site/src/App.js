@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import octicons from 'octicons'
 import StatsDisplay from './components/StatsDisplay'
 
 import './app.css'
@@ -13,6 +14,18 @@ class App extends Component {
                 sampleWidth={sampleWidth}
                 hasData={!!data}
                 statisticValue={value}
+            />
+        )
+    }
+
+    renderOcticon(name) {
+        const octicon = octicons[name] && octicons[name].toSVG()
+        const iconSvg = { __html: octicon }
+
+        return (
+            <span
+                className="app__button-icon"
+                dangerouslySetInnerHTML={iconSvg}
             />
         )
     }
@@ -34,6 +47,22 @@ class App extends Component {
                     {this.renderStatistic('largestGroup', 3)} users in the
                     largest group
                 </p>
+
+                <div className="app__button-group">
+                    <a
+                        className="app__button app__button--primary"
+                        href="https://telegram.me/everyonethebot"
+                    >
+                        {this.renderOcticon('plus')} Add to Telegram
+                    </a>
+
+                    <a
+                        className="app__button"
+                        href="https://github.com/everyone-bot/everyone-bot"
+                    >
+                        {this.renderOcticon('mark-github')} View on GitHub
+                    </a>
+                </div>
             </div>
         )
     }
