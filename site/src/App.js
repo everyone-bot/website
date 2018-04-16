@@ -1,20 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import octicons from 'octicons'
 import StatsDisplay from './components/StatsDisplay'
 
 import './app.css'
 
 class App extends Component {
-    renderStatistic(statistic, sampleWidth) {
+    renderStatistic(statistic, sampleWidth, text, isLast) {
         const { data } = this.props
         const value = data && data[statistic]
 
         return (
-            <StatsDisplay
-                sampleWidth={sampleWidth}
-                hasData={!!data}
-                statisticValue={value}
-            />
+            <Fragment>
+                <StatsDisplay
+                    sampleWidth={sampleWidth}
+                    hasData={!!data}
+                    statisticValue={value}
+                />
+
+                <span> {text}</span>
+
+                {!isLast && <span className="app__bullet">&#9679;</span>}
+            </Fragment>
         )
     }
 
@@ -41,11 +47,15 @@ class App extends Component {
                 </p>
 
                 <p>
-                    {this.renderStatistic('mentions', 10)} mentions sent |{' '}
-                    {this.renderStatistic('users', 5)} users |{' '}
-                    {this.renderStatistic('groups', 5)} groups |{' '}
-                    {this.renderStatistic('largestGroup', 3)} users in the
-                    largest group
+                    {this.renderStatistic('mentions', 10, 'mentions sent')}
+                    {this.renderStatistic('users', 5, 'users')}
+                    {this.renderStatistic('groups', 5, 'groups')}
+                    {this.renderStatistic(
+                        'largestGroup',
+                        3,
+                        'users in the largest group',
+                        true,
+                    )}
                 </p>
 
                 <div className="app__button-group">

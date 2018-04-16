@@ -23,6 +23,10 @@
     padding: 2px 4px;
 }
 
+.app__bullet {
+    padding: 0 8px;
+}
+
 .app__button-group {
     margin-top: 10px;
     display: flex;
