@@ -56,6 +56,20 @@ export default class StatsDisplay extends Component {
         this._computeStatistic()
     }
 
+    isDoneAnimating() {
+        const { displayStatistic, animationFrame } = this.state
+        return animationFrame >= displayStatistic.length
+    }
+
+    componentWillReceiveProps({ statisticValue }) {
+        const { statisticValue: oldStat } = this.props
+        if (statisticValue === oldStat) return
+
+        if (this.isDoneAnimating()) {
+            this.setState({ displayStatistic: statisticValue.toLocaleString() })
+        }
+    }
+
     render() {
         const { displayStatistic } = this.state
         return <span>{displayStatistic}</span>
