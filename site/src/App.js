@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import octicons from 'octicons'
 import StatsDisplay from './components/StatsDisplay'
 
@@ -10,7 +10,7 @@ class App extends Component {
         const value = data && data[statistic]
 
         return (
-            <Fragment>
+            <span className="app__statistic">
                 <StatsDisplay
                     sampleWidth={sampleWidth}
                     hasData={!!data}
@@ -20,7 +20,7 @@ class App extends Component {
                 <span> {text}</span>
 
                 {!isLast && <span className="app__bullet">&#9679;</span>}
-            </Fragment>
+            </span>
         )
     }
 

@@ -63,3 +63,17 @@
     background: palevioletred;
     border-color: palevioletred;
 }
+
+@media screen and (max-width: 768px) {
+    .app {
+        text-align: center;
+    }
+
+    .app__statistic {
+        display: block;
+    }
+
+    .app__bullet {
+        display: none;
+    }
+}
